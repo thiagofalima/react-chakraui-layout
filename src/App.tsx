@@ -1,7 +1,9 @@
 import { Form } from "./components/Form";
 import { Box, Center } from "@chakra-ui/react";
 
+
 function App() {
+  
   return (
     <>
       <Box 

@@ -1,13 +1,19 @@
 import {
-  Button,
   Field,
   Fieldset,
   Input,
   Stack,
 } from "@chakra-ui/react"
 
+import { login } from "./login"
+import { useState } from "react"
+import { MyButton } from "./MyButton"
+
 
 export const Form = () => {
+
+  const [ email, setEmail ] = useState('')
+
   return (
     <Fieldset.Root size="lg" maxW="md" colorPalette="green">
       <Stack>
@@ -21,7 +27,10 @@ export const Form = () => {
 
         <Field.Root>
           <Field.Label>Email </Field.Label>
-          <Input name="email" type="email" />
+          <Input 
+          value={ email }
+          onChange={(event) => setEmail(event.target.value)}
+          name="email" type="email" />
         </Field.Root>
 
         <Field.Root>
@@ -31,9 +40,10 @@ export const Form = () => {
 
       </Fieldset.Content>
 
-      <Button width="100%" type="submit" alignSelf="flex-start">
-        Submit
-      </Button>
+      <MyButton 
+        onClick={() => login(email)}
+      >
+      </MyButton> 
     </Fieldset.Root>
   )
 }
