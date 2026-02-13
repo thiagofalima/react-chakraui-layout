@@ -37,6 +37,10 @@ export const Form = () => {
   return (
     <Fieldset.Root size="lg" maxW="md" colorPalette="green">
       <Stack>
+        { userData === null || userData === undefined ? 
+        <h1>Loading ...</h1>:
+        <h1>Pronto!</h1> 
+        }
         <Fieldset.Legend>Bem-vindo(a) { userData?.name }!</Fieldset.Legend>
         <Fieldset.HelperText>
           Informe seu usuário e senha:
