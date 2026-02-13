@@ -6,13 +6,24 @@ import {
 } from "@chakra-ui/react"
 
 import { login } from "./login"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { MyButton } from "./MyButton"
-
+import { api } from "@/api"
 
 export const Form = () => {
 
   const [ email, setEmail ] = useState('')
+
+  useEffect(() => {
+    // Criação de uma função async
+    const getData = async () => {
+      const data = await api
+      console.log(data)
+    }
+    // chamando a função logo após a sua criação
+    getData()
+
+  })
 
   return (
     <Fieldset.Root size="lg" maxW="md" colorPalette="green">
