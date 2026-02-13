@@ -10,25 +10,34 @@ import { useState, useEffect } from "react"
 import { MyButton } from "./MyButton"
 import { api } from "@/api"
 
+interface UserData{
+  email: string,
+  password: string,
+  name: string
+} 
+
 export const Form = () => {
 
-  const [ email, setEmail ] = useState('')
+  const [ email, setEmail ] = useState<string>('')
+  const [userData, setUserData] = useState<null | UserData>()
 
   useEffect(() => {
     // Criação de uma função async
     const getData = async () => {
-      const data = await api
-      console.log(data)
+      const data: any | UserData = await api
+      setUserData(data)
     }
     // chamando a função logo após a sua criação
     getData()
 
   })
 
+  console.log(userData)
+
   return (
     <Fieldset.Root size="lg" maxW="md" colorPalette="green">
       <Stack>
-        <Fieldset.Legend>Bem-vindo(a)!</Fieldset.Legend>
+        <Fieldset.Legend>Bem-vindo(a) { userData?.name }!</Fieldset.Legend>
         <Fieldset.HelperText>
           Informe seu usuário e senha:
         </Fieldset.HelperText>
