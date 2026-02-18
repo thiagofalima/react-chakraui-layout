@@ -1,22 +1,15 @@
-import { Form } from "./components/Form";
-import { Box, Center } from "@chakra-ui/react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import LoginPage from "./components/pages/LoginPage";
 
 function App() {
   
   return (
     <>
-      <Box 
-      m="100px auto" 
-      maxW="sm" 
-      bg="bg" 
-      shadow="md" 
-      p="10"
-      borderRadius="md"
-      >
-        <Center>
-          <Form />
-        </Center>
-      </Box>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={ <LoginPage /> } />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
