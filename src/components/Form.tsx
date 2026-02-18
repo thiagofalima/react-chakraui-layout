@@ -8,40 +8,16 @@ import {
 import { login } from "./login"
 import { useState, useEffect } from "react"
 import { MyButton } from "./MyButton"
-import { api } from "@/api"
 
-interface UserData{
-  email: string,
-  password: string,
-  name: string
-} 
+
+
 
 export const Form = () => {
-
-  const [ email, setEmail ] = useState<string>('')
-  const [userData, setUserData] = useState<null | UserData>()
-
-  useEffect(() => {
-    // Criação de uma função async
-    const getData = async () => {
-      const data: any | UserData = await api
-      setUserData(data)
-    }
-    // chamando a função logo após a sua criação
-    getData()
-
-  })
-
-  console.log(userData)
+  const [email, setEmail] = useState<string>('')
 
   return (
     <Fieldset.Root size="lg" maxW="md" colorPalette="green">
       <Stack>
-        { userData === null || userData === undefined ? 
-        <h1>Loading ...</h1>:
-        <h1>Pronto!</h1> 
-        }
-        <Fieldset.Legend>Bem-vindo(a) { userData?.name }!</Fieldset.Legend>
         <Fieldset.HelperText>
           Informe seu usuário e senha:
         </Fieldset.HelperText>
@@ -51,10 +27,10 @@ export const Form = () => {
 
         <Field.Root>
           <Field.Label>Email </Field.Label>
-          <Input 
-          value={ email }
-          onChange={(event) => setEmail(event.target.value)}
-          name="email" type="email" />
+          <Input
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+            name="email" type="email" />
         </Field.Root>
 
         <Field.Root>
@@ -64,10 +40,10 @@ export const Form = () => {
 
       </Fieldset.Content>
 
-      <MyButton 
+      <MyButton
         onClick={() => login(email)}
       >
-      </MyButton> 
+      </MyButton>
     </Fieldset.Root>
   )
 }

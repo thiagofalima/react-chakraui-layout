@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
+import { AccountPage } from "./pages/AccountPage"
 
 function App() {
   
@@ -8,6 +9,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={ <LoginPage /> } />
+          <Route path="/account" element={ <AccountPage /> } />
         </Routes>
       </BrowserRouter>
     </>
