@@ -5,18 +5,14 @@ interface IMyCard {
     balance: number | undefined
 }
 
+const currentDate = new Date()
 const MyCard = ( {name, balance}: IMyCard ) => {
   return (
     <Card.Root width="320px">
       <Card.Body gap="2">
-        <Avatar.Root size="lg" shape="rounded">
-          <Avatar.Fallback name="Nue Camp" />
-        </Avatar.Root>
         <Card.Title mt="2">Bem-vindo {name}</Card.Title>
         <Card.Description>
-          This is the card body. Lorem ipsum dolor sit amet, consectetur
-          adipiscing elit. Curabitur nec odio vel dui euismod fermentum.
-          Curabitur nec odio vel dui euismod fermentum.
+          Date: {`${currentDate.getUTCDay()}/${currentDate.getMonth()}/${currentDate.getFullYear()}`}
         </Card.Description>
       </Card.Body>
       <Card.Footer justifyContent="flex-end">
