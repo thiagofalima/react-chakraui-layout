@@ -27,5 +27,5 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["src", "**/*.ts", "**/*.tsx"]  // Importante para o vitest
+  "include": ["src", "**/*.ts", "**/*.tsx", "src/pages"]  // Importante para o vitest
 }
