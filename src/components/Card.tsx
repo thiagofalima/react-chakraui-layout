@@ -1,4 +1,4 @@
-import { Avatar, Card, Text } from "@chakra-ui/react"
+import { Card, Text } from "@chakra-ui/react"
 
 interface IMyCard {
     name: string | undefined,
@@ -24,3 +24,4 @@ const MyCard = ( {name, balance}: IMyCard ) => {
 }
 
 export default MyCard;
+
