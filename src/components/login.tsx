@@ -1,3 +1,4 @@
+
 import { api } from "../api";
 
 export const login = async (email: string): Promise<void> => {
@@ -7,6 +8,7 @@ export const login = async (email: string): Promise<void> => {
     if(email !== data.email) {
         return alert('Email inválido')
     }
+
 
     alert(`Bem-vindo ${email}!`);
 }

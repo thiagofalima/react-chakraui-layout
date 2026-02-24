@@ -1,7 +1,9 @@
 import { api } from "@/api"
 import { Box } from "@chakra-ui/react"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import MyCard from "@/components/Card"
+import { AppContext } from "@/components/AppContext"
+import { useNavigate } from "react-router-dom"
 
 interface UserData {
   email: string,
@@ -13,6 +15,11 @@ interface UserData {
 export const AccountPage = () => {
 
   const [userData, setUserData] = useState<null | UserData>()
+  const navigate = useNavigate()
+
+  const { isLoggedIn } = useContext( AppContext )
+
+  !isLoggedIn && navigate('/')
 
   useEffect(() => {
     // Criação de uma função async
